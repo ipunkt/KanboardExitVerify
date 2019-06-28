@@ -6,7 +6,7 @@ function exit_confirm(clickedItem) {
     } else {
         return;
     }
-    if (window.confirm('Wollen Sie die Seite verlassen?')) {
+    if (window.confirm('Do you want to leave the page?')) {
         window.location.href = url;
     }
 }
@@ -20,11 +20,10 @@ function getAllLinksWithExternalClass() {
     for (let i = 0; i < links.length; i++) {
         linksArray.push(links[i]);
     }
-    console.log(linksArray);
     return linksArray;
 }
 
-function registerOnClickChangeKeydownEventsOfElementsWith() {
+function registerOnClickEvent() {
     let links = getAllLinksWithExternalClass();
     for (let i = 0; i < links.length; i++) {
         let self = links[i];
@@ -36,7 +35,5 @@ function registerOnClickChangeKeydownEventsOfElementsWith() {
 }
 
 document.addEventListener('DOMContentLoaded', function(){
-    registerOnClickChangeKeydownEventsOfElementsWith();
+    registerOnClickEvent();
 });
-
-
