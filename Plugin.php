@@ -11,14 +11,9 @@ class Plugin extends Base
     public function initialize()
     {
         if ($this->configModel->get('verify_exit', 1) == 1) {
-            $this->hook->on("template:layout:js", array("template" => "plugins/VerifyExit/unload_verify.js"));
+            $this->hook->on("template:layout:js", array("template" => "plugins/VerifyExit/Assets/unload_verify.js"));
         }
         $this->template->hook->attach("template:config:application", "VerifyExit:config/exit-verify");
-    }
-
-    public function onStartup()
-    {
-        Translator::load($this->languageModel->getCurrentLanguage(), __DIR__ . '/Locale');
     }
 
     public function getPluginName()
