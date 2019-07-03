@@ -10,12 +10,40 @@ class Plugin extends Base
 {
     public function initialize()
     {
-        $this->hook->on("template:layout:js", array("template" => "plugins/VerifyExit/unload_verify.js"));
+        if ($this->configModel->get('verify_exit', 1) == 1) {
+            $this->hook->on("template:layout:js", array("template" => "plugins/VerifyExit/unload_verify.js"));
+        }
+        $this->template->hook->attach("template:config:application", "VerifyExit:config/exit-verify");
     }
 
     public function onStartup()
     {
         Translator::load($this->languageModel->getCurrentLanguage(), __DIR__ . '/Locale');
+    }
+
+    public function getPluginName()
+    {
+        return 'ExitVerify';
+    }
+
+    public function getPluginDescription()
+    {
+        return t('This plugin adds dialog box with confirmation to leave page by clicking on external link.');
+    }
+
+    public function getPluginAuthor()
+    {
+        return 'ipunkt Business Solutions';
+    }
+
+    public function getPluginVersion()
+    {
+        return '1.0';
+    }
+
+    public function getPluginHomepage()
+    {
+        return '';
     }
 
 }

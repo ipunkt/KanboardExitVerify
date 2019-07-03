@@ -1,4 +1,3 @@
-
 function exit_confirm(clickedItem) {
     let url;
     if (clickedItem.nodeName === 'A') {
@@ -34,6 +33,6 @@ function registerOnClickEvent() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function () {
     registerOnClickEvent();
 });
