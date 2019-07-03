@@ -33,8 +33,6 @@ function registerOnClickEvent() {
     }
 }
 
-if (something == true) {
-    document.addEventListener('DOMContentLoaded', function () {
-        registerOnClickEvent();
-    })
-}
+document.addEventListener('DOMContentLoaded', function () {
+    registerOnClickEvent();
+});
