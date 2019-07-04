@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\VerifyExit;
+namespace Kanboard\Plugin\ExitVerify;
 
 
 use Kanboard\Core\Plugin\Base;
@@ -11,9 +11,9 @@ class Plugin extends Base
     public function initialize()
     {
         if ($this->configModel->get('verify_exit', 1) == 1) {
-            $this->hook->on("template:layout:js", array("template" => "plugins/VerifyExit/Assets/unload_verify.js"));
+            $this->hook->on("template:layout:js", array("template" => "plugins/ExitVerify/Assets/unload_verify.js"));
         }
-        $this->template->hook->attach("template:config:application", "VerifyExit:config/exit-verify");
+        $this->template->hook->attach("template:config:application", "ExitVerify:config/exit-verify");
     }
 
     public function getPluginName()
@@ -33,12 +33,12 @@ class Plugin extends Base
 
     public function getPluginVersion()
     {
-        return '1.0';
+        return '1.0.0';
     }
 
     public function getPluginHomepage()
     {
-        return '';
+        return 'https://github.com/ipunkt/kanboard-exit-verify/';
     }
 
 }
